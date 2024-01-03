@@ -1,5 +1,6 @@
-package fr.christophe.exercices.exercice1;
+package fr.christophe.exercices.tp1.exercice1;
 
+import fr.christophe.exercices.tp1.exercice1.Moyenne;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;

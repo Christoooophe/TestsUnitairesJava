@@ -1,4 +1,4 @@
-package fr.christophe.exercices.exercice2;
+package fr.christophe.exercices.tp1.exercice2;
 
 public class CalculTTC {
     /**

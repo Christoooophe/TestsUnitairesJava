@@ -1,4 +1,4 @@
-package fr.christophe.exercices.exercice1;
+package fr.christophe.exercices.tp1.exercice1;
 
 public class Moyenne {
     public int moyenne(int[] notes) {

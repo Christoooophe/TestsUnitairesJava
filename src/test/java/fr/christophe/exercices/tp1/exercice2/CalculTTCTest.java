@@ -1,5 +1,6 @@
-package fr.christophe.exercices.exercice2;
+package fr.christophe.exercices.tp1.exercice2;
 
+import fr.christophe.exercices.tp1.exercice2.CalculTTC;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
