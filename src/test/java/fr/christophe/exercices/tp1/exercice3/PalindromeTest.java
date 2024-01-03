@@ -6,8 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 class PalindromeTest {
 
@@ -18,15 +17,22 @@ class PalindromeTest {
         palindrome = new Palindrome();
     }
 
-    @ParameterizedTest(name = "Test {index} : {0} / {1}")
-    @CsvSource({
-            "151, true",
-            "152, false"
-    })
-    @DisplayName("Test palindrome")
-    public void testPalindrome(long nombre, boolean nbrePalindrome){
+    //Changement de la méthode pour tester le true et false dans deux méthodes différentes (voir commits précédents pour
+    //la version précédente
+    @ParameterizedTest(name = "Test {index} : {0}")
+    @ValueSource(ints = {15, 225, 453, 144})
+    @DisplayName("Test palindrome false")
+    public void testPalindromeFalse(long nombre){
         boolean result = palindrome.estUnPalindrome(nombre);
-        assertEquals(nbrePalindrome, result, "Rip le s");
+        assertFalse(result);
+    }
+
+    @ParameterizedTest(name = "Test {index} : {0}")
+    @ValueSource(ints = {151, 222, 454, 141})
+    @DisplayName("Test palindrome true")
+    public void testPalindromeTrue(long nombre){
+        boolean result = palindrome.estUnPalindrome(nombre);
+        assertTrue(result);
     }
 
     @ParameterizedTest(name = "Test {index} : {0}")
