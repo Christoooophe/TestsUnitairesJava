@@ -5,6 +5,7 @@ import fr.christophe.exercices.tp1.exercice2.CalculTTC;
 import fr.christophe.exercices.tp1.exercice3.Palindrome;
 import fr.christophe.exercices.tp1.exercice4.Doublon;
 import fr.christophe.exercices.tp1.exercice5.RomanToNumber;
+import fr.christophe.exercices.tp1.exercice6.Majoritaire;
 
 public class Main {
     public static void main(String[] args){
@@ -32,5 +33,10 @@ public class Main {
         //Test des chiffres Romains
         RomanToNumber chiffresRomain = new RomanToNumber();
         System.out.println("Chiffres arabes depuis nombre romain : " + chiffresRomain.convertirNombreRomainEnNombreArabe("XIV"));
+
+        //Test de la classe Majoritaire
+        Majoritaire major = new Majoritaire();
+        int[] listeNbresMajor = {2, 5, 5, 5, 5, 5, 7, 2};
+        System.out.println("Majoritaire : " + major.hashMap(listeNbresMajor));
     }
 }
