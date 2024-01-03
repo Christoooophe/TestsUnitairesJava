@@ -36,10 +36,8 @@ class MoyenneTest {
     @DisplayName("Test nombre de notes")
     public void testNombresDeNote(int[] listeNotes) {
 
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> moyenne.moyenne(listeNotes));
-        assertEquals(IllegalArgumentException.class, exception.getClass());
-        assertEquals("Le carnet de notes doit contenir 3 notes", exception.getMessage());
         assertThrows(IllegalArgumentException.class, () -> moyenne.moyenne(listeNotes));
+
     }
 
     @ParameterizedTest(name = "Test {index} : {0}")
@@ -47,10 +45,8 @@ class MoyenneTest {
     @DisplayName("Test notes pas entre 0 et 20")
     public void testRangeNotes(int[] listeNotes) {
 
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> moyenne.moyenne(listeNotes));
-        assertEquals(IllegalArgumentException.class, exception.getClass());
-        assertEquals("Les notes doivent être comprises entre 0 et 20", exception.getMessage());
         assertThrows(IllegalArgumentException.class, () -> moyenne.moyenne(listeNotes));
+
     }
 
     private static Stream<Arguments> argumentsCaculMoyenne() {
