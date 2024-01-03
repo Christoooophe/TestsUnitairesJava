@@ -4,6 +4,7 @@ import fr.christophe.exercices.tp1.exercice1.Moyenne;
 import fr.christophe.exercices.tp1.exercice2.CalculTTC;
 import fr.christophe.exercices.tp1.exercice3.Palindrome;
 import fr.christophe.exercices.tp1.exercice4.Doublon;
+import fr.christophe.exercices.tp1.exercice5.RomanToNumber;
 
 public class Main {
     public static void main(String[] args){
@@ -27,5 +28,9 @@ public class Main {
         Doublon doublon = new Doublon();
         int[] listeNbres = {2, 5, 3, 5, 1};
         System.out.println("Contient des doublons ? " + doublon.verifierSiDoublons(listeNbres));
+
+        //Test des chiffres Romains
+        RomanToNumber chiffresRomain = new RomanToNumber();
+        System.out.println("Chiffres arabes depuis nombre romain : " + chiffresRomain.convertirNombreRomainEnNombreArabe("XIV"));
     }
 }
