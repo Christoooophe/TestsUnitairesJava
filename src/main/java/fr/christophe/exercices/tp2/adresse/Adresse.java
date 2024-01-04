@@ -1,13 +1,13 @@
 package fr.christophe.exercices.tp2.adresse;
 
 public class Adresse {
-    private String voie;
+    private int voie;
     private String rue;
     private int codePostal;
     private String ville;
     private String pays;
 
-    public Adresse(String voie, String rue, int codePostal, String ville, String pays) {
+    public Adresse(int voie, String rue, int codePostal, String ville, String pays) {
         this.voie = voie;
         this.rue = rue;
         this.codePostal = codePostal;
@@ -15,11 +15,11 @@ public class Adresse {
         this.pays = pays;
     }
 
-    public String getVoie() {
+    public int getVoie() {
         return voie;
     }
 
-    public void setVoie(String voie) {
+    public void setVoie(int voie) {
         this.voie = voie;
     }
 

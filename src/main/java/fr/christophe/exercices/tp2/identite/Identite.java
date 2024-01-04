@@ -36,8 +36,7 @@ public class Identite {
         this.adresse = adresse;
     }
 
-    @Override
-    public String toString(){
+    public String identiteSalarie(){
         return this.getNom() + " " + this.getPrenom();
     }
 
