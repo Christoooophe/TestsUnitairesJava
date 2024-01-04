@@ -1,4 +1,4 @@
-package fr.christophe.exercices;
+package fr.christophe.exercices.tp1;
 
 import fr.christophe.exercices.tp1.exercice1.Moyenne;
 import fr.christophe.exercices.tp1.exercice2.CalculTTC;
