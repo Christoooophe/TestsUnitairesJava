@@ -1,5 +1,7 @@
 package fr.christophe.exercices.tp2.salaire;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 public class Salaire {
@@ -22,12 +24,14 @@ public class Salaire {
 
     /**
      * Permet de calculer le salaire d'un salarié en fonction de ses heures, en prenant en compte les heures supp
-     * De plus, en passant par DecimalFormat, on bloque à 2 chiffres après la virgule
+     * De plus, en passant par BigDecimal, on bloque à 2 chiffres après la virgule
      * @param heures
      * @return salaire
      */
-    public String payer(double heures) {
-        return new DecimalFormat("#.##").format(calculPayePourHeuresTravaillees(heures));
+    public BigDecimal payer(double heures) {
+        BigDecimal exact = BigDecimal.valueOf(calculPayePourHeuresTravaillees(heures));
+        BigDecimal big = exact.setScale(2, RoundingMode.HALF_UP);
+        return big;
     }
 
     /**
