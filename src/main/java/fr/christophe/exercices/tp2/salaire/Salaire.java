@@ -1,8 +1,8 @@
 package fr.christophe.exercices.tp2.salaire;
 
 public class Salaire {
-    public final int HEURES_MINIMUM_TRAVAILLEES = 151;
-    public final int COEFF_HEURES_LEGALES = 1;
+    public final double HEURES_MINIMUM_TRAVAILLEES = 151.67;
+    public final double COEFF_HEURES_LEGALES = 1;
     public final double COEFF_HEURES_SUP = 1.25;
     private int tauxHoraire;
 
@@ -23,7 +23,7 @@ public class Salaire {
      * @param heures
      * @return salaire
      */
-    public double payer(int heures) {
+    public double payer(double heures) {
         return calculPayePourHeuresTravaillees(heures);
     }
 
@@ -34,10 +34,10 @@ public class Salaire {
      * @param heures
      * @return salaire en prenant en compte les majorations
      */
-    private double calculPayePourHeuresTravaillees(int heures){
+    private double calculPayePourHeuresTravaillees(double heures){
 
         if (heures > this.HEURES_MINIMUM_TRAVAILLEES) {
-            int heuresSup;
+            double heuresSup;
             heuresSup = heures - this.HEURES_MINIMUM_TRAVAILLEES;
             return calculPaye(heuresSup, COEFF_HEURES_SUP) +
                     calculPaye(this.HEURES_MINIMUM_TRAVAILLEES, this.COEFF_HEURES_LEGALES);
@@ -52,7 +52,7 @@ public class Salaire {
      * @param coeff
      * @return Combien la personne va être payée
      */
-    private double calculPaye(int heures, double coeff){
+    private double calculPaye(double heures, double coeff){
         return (this.tauxHoraire * coeff) * heures;
     }
 }
