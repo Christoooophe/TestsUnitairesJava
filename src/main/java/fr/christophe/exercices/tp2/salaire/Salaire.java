@@ -6,9 +6,9 @@ public class Salaire {
     public final double HEURES_MINIMUM_TRAVAILLEES = 151.67;
     public final double COEFF_HEURES_LEGALES = 1;
     public final double COEFF_HEURES_SUP = 1.25;
-    private int tauxHoraire;
+    private double tauxHoraire;
 
-    public Salaire(int tauxHoraire) {
+    public Salaire(double tauxHoraire) {
         this.tauxHoraire = tauxHoraire;
     }
 
@@ -16,7 +16,7 @@ public class Salaire {
         return tauxHoraire;
     }
 
-    public void setTauxHoraire(int tauxHoraire) {
+    public void setTauxHoraire(double tauxHoraire) {
         this.tauxHoraire = tauxHoraire;
     }
 

@@ -9,12 +9,4 @@ public class SalarieCdi extends Salarie {
     public SalarieCdi(Salaire salaire, Identite identite){
         super(salaire, identite);
     }
-
-    public void demenager(Adresse adresse){
-        System.out.println("Il a bougé le frérot");
-    }
-
-    public int augmenter(int pourcentage){
-        return 0;
-    }
 }

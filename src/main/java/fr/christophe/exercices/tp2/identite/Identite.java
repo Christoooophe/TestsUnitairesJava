@@ -1,8 +1,6 @@
 package fr.christophe.exercices.tp2.identite;
 
 import fr.christophe.exercices.tp2.adresse.Adresse;
-import fr.christophe.exercices.tp2.salaire.Salaire;
-import fr.christophe.exercices.tp2.salarie.Salarie;
 
 public class Identite {
     private String nom;
@@ -40,7 +38,7 @@ public class Identite {
 
     @Override
     public String toString(){
-        return this.getPrenom() + " " + this.getNom();
+        return this.getNom() + " " + this.getPrenom();
     }
 
 }
