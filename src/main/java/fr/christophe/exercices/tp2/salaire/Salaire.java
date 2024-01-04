@@ -1,5 +1,7 @@
 package fr.christophe.exercices.tp2.salaire;
 
+import java.text.DecimalFormat;
+
 public class Salaire {
     public final double HEURES_MINIMUM_TRAVAILLEES = 151.67;
     public final double COEFF_HEURES_LEGALES = 1;
@@ -20,11 +22,12 @@ public class Salaire {
 
     /**
      * Permet de calculer le salaire d'un salarié en fonction de ses heures, en prenant en compte les heures supp
+     * De plus, en passant par DecimalFormat, on bloque à 2 chiffres après la virgule
      * @param heures
      * @return salaire
      */
-    public double payer(double heures) {
-        return calculPayePourHeuresTravaillees(heures);
+    public String payer(double heures) {
+        return new DecimalFormat("#.##").format(calculPayePourHeuresTravaillees(heures));
     }
 
     /**
