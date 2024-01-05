@@ -15,8 +15,8 @@ public class ThermometreTest {
 
     @Test
     public void should_return_temperature_5(){
-        int[] tableau = {5, 10};
-        Thermometre thermometre = new Thermometre(tableau);
+        int[] arrayTemperatures = {5, 10};
+        Thermometre thermometre = new Thermometre(arrayTemperatures);
         int result = thermometre.getClosestTemperature();
         assertEquals(5, result);
     }
