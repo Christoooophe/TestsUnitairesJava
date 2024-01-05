@@ -14,13 +14,16 @@ public class Thermometre {
      */
     public int getClosestTemperature(){
         int valueToFind = 0;
+        int valueTemporary = Integer.MAX_VALUE;
         for (int i = 0; i < this.arrayOfTemperatures.length; i++) {
-            int numberInsideArray = this.arrayOfTemperatures[i];
-            if (valueToFind == 0) {
-                valueToFind = numberInsideArray;
+            int numberInsideArray = Math.abs(this.arrayOfTemperatures[i]);
+            if (numberInsideArray < valueTemporary) {
+                valueToFind = this.arrayOfTemperatures[i];
+                valueTemporary = numberInsideArray;
             }
-            else if (numberInsideArray < valueToFind) {
-                valueToFind = numberInsideArray;
+            else if (numberInsideArray == valueTemporary && this.arrayOfTemperatures[i] > 0
+                    && this.arrayOfTemperatures[valueToFind] < 0) {
+                valueToFind = this.arrayOfTemperatures[i];
             }
         }
         return valueToFind;
