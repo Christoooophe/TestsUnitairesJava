@@ -4,22 +4,20 @@ import fr.christophe.exercices.tp2.adresse.Adresse;
 import fr.christophe.exercices.tp2.identite.Identite;
 import fr.christophe.exercices.tp2.salaire.Salaire;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 //
 @ExtendWith(MockitoExtension.class)
 class SalarieCdiTest {
-
-    @Mock
-    private Adresse adressMock;
 
     @Mock
     private Identite identiteMock;
@@ -29,10 +27,6 @@ class SalarieCdiTest {
 
     @InjectMocks
     private SalarieCdi salarieCdi;
-
-    @BeforeEach
-    public void setUp() {
-    }
 
     @Test
     public void testPayer() {
@@ -69,18 +63,30 @@ class SalarieCdiTest {
     @Test
     public void testDemenager() {
 
+        Adresse nouvelleAdresse = new Adresse(2, "rue", 02, "ee", "ff");
+
+        salarieCdi.demenager(nouvelleAdresse);
+
         verify(
-                adressMock,
+                identiteMock,
                 times(1)
-        ).setVille("test");
+        ).setAdresse(nouvelleAdresse);
+
     }
 
-//    @Test
-//    public void testAugmenter(){
-//
-//        verify(
-//                salaireMock,
-//                times(1)
-//        ).
-//    }
+    @ParameterizedTest
+    @CsvSource({
+            "10, 1.25, 12.5",
+            "15, 1.50, 22.5"
+    })
+    @DisplayName("Test augmenter")
+    public void testAugmenter(double tauxHoraire, double augmentation, double expected){
+        Salaire salaire = new Salaire(tauxHoraire);
+        SalarieCdi salarieTest = new SalarieCdi(salaire, identiteMock);
+
+        salarieTest.augmenter(augmentation);
+        double result = salarieTest.getSalaire().getTauxHoraire();
+
+        assertEquals(expected, result, "Le résultat attendu était : " + expected);
+    }
 }
