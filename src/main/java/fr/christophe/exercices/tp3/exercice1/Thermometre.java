@@ -16,14 +16,17 @@ public class Thermometre {
         int valueToFind = 0;
         int valueTemporary = Integer.MAX_VALUE;
         for (int i = 0; i < this.arrayOfTemperatures.length; i++) {
-            int numberInsideArray = Math.abs(this.arrayOfTemperatures[i]);
+
+            int temperature = this.arrayOfTemperatures[i];
+            int numberInsideArray = Math.abs(temperature);
+
             if (numberInsideArray < valueTemporary) {
-                valueToFind = this.arrayOfTemperatures[i];
+                valueToFind = temperature;
                 valueTemporary = numberInsideArray;
             }
-            else if (numberInsideArray == valueTemporary && this.arrayOfTemperatures[i] > 0
-                    && this.arrayOfTemperatures[valueToFind] < 0) {
-                valueToFind = this.arrayOfTemperatures[i];
+            else if (numberInsideArray == valueTemporary && temperature > 0
+                    && temperature < 0) {
+                valueToFind = temperature;
             }
         }
         return valueToFind;

@@ -1,39 +1,32 @@
 package fr.christophe.exercices.tp3.exercice1;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ThermometreTest {
-    @Test
-    public void should_return_temperature_2(){
-        int[] tableau = {2};
-        Thermometre thermometre = new Thermometre(tableau);
+
+    @ParameterizedTest
+    @MethodSource("listeTemperatures")
+    @DisplayName("Test retour plus proche zéro")
+    public void should_return_closest_temperature_from_zero(int[] listeTemperatures, int expectedResult){
+        Thermometre thermometre = new Thermometre(listeTemperatures);
         int result = thermometre.getClosestTemperature();
-        assertEquals(2, result);
+        assertEquals(expectedResult, result);
     }
 
-    @Test
-    public void should_return_temperature_5(){
-        int[] arrayTemperatures = {5, 10};
-        Thermometre thermometre = new Thermometre(arrayTemperatures);
-        int result = thermometre.getClosestTemperature();
-        assertEquals(5, result);
+    private static Stream<Arguments> listeTemperatures() {
+        return Stream.of(
+                Arguments.of((Object) new int[]{2}, 2),
+                Arguments.of((Object) new int[]{5, 10}, 5),
+                Arguments.of((Object) new int[]{-5, -10, -15}, -5),
+                Arguments.of((Object) new int[]{-25, 100, 50, 28, -522}, -25)
+        );
     }
 
-    @Test
-    public void should_return_temperature_8(){
-        int[] arrayTemperatures = {8, 15};
-        Thermometre thermometre = new Thermometre(arrayTemperatures);
-        int result = thermometre.getClosestTemperature();
-        assertEquals(8, result);
-    }
-
-    @Test
-    public void should_return_temperature_minus_10(){
-        int[] arrayTemperatures = {-10, -15, -25};
-        Thermometre thermometre = new Thermometre(arrayTemperatures);
-        int result = thermometre.getClosestTemperature();
-        assertEquals(-10, result);
-    }
 }
