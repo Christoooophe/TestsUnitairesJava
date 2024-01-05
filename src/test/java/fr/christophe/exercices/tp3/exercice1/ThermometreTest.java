@@ -20,4 +20,12 @@ public class ThermometreTest {
         int result = thermometre.getClosestTemperature();
         assertEquals(5, result);
     }
+
+    @Test
+    public void should_return_temperature_8(){
+        int[] arrayTemperatures = {8, 15};
+        Thermometre thermometre = new Thermometre(arrayTemperatures);
+        int result = thermometre.getClosestTemperature();
+        assertEquals(8, result);
+    }
 }
