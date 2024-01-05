@@ -12,4 +12,12 @@ public class ThermometreTest {
         int result = thermometre.getClosestTemperature();
         assertEquals(2, result);
     }
+
+    @Test
+    public void should_return_temperature_5(){
+        int[] tableau = {5, 10};
+        Thermometre thermometre = new Thermometre(tableau);
+        int result = thermometre.getClosestTemperature();
+        assertEquals(5, result);
+    }
 }
