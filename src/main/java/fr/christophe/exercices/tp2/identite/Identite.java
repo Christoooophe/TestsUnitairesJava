@@ -36,6 +36,10 @@ public class Identite {
         this.adresse = adresse;
     }
 
+    /**
+     * Retourne le nom et prénom du salarié
+     * @return nom prénom
+     */
     public String identiteSalarie(){
         return this.getNom() + " " + this.getPrenom();
     }

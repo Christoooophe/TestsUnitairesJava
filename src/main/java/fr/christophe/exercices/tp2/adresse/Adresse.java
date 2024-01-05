@@ -55,6 +55,10 @@ public class Adresse {
         this.pays = pays;
     }
 
+    /**
+     * Retourne l'adresse complète du salarié
+     * @return adresse salarié
+     */
     @Override
     public String toString(){
         return this.voie + " " + this.rue + " " + this.codePostal + " " + this.ville + " " + this.pays ;

@@ -38,10 +38,5 @@ public class Main {
         System.out.println("----------------------------------");
         System.out.println(identite.identiteSalarie());
 
-
-
-//
-//        System.out.println(jacques.travailler(200));
-//        System.out.println(jacques.travailler());
     }
 }
